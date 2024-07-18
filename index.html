@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>음식 추천</title>
+    <link rel="stylesheet" type="text/css" href="style.css?v=1">
+</head>
+<body>
+    <nav class="nav-bar">
+        <img src="./eatbean.gif" alt="로고" class="nav-logo">
+        <h2 class="nav-title">뭐먹지?</h2>
+        <div class="nav-menu">
+            <button id="usage-button" class="nav-menu-button">사용법</button>
+        </div>
+    </nav>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="./eatbean.gif" alt="KakaoTalk" class="chat-header-logo">
+            <h2 class="chat-header-title">음식 추천</h2>
+        </div>
+        <div id="chat-content" class="chat-bubble">알림: 추천답변을 불러오는데 다소 시간이 걸릴 수 있습니다.</div>
+        <div id="chat-content" class="chat-content">
+
+            <div id="answer-container"></div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="question-input" placeholder="사용법 예시: 부모님 결혼기념일에 대접할 저녁메뉴 추천해줘" class="chat-input-box" onkeypress="if( event.keyCode == 13 ){getAnswer();}">
+            <button onclick="getAnswer()" class="chat-send-button">전송</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+    
+        const firebaseConfig = {
+          apiKey: "AIzaSyDtRN788CDHdkGfJHPi3i3g7_g8_vuSatc",
+          authDomain: "ai-eat-search.firebaseapp.com",
+          projectId: "ai-eat-search",
+          storageBucket: "ai-eat-search.appspot.com",
+          messagingSenderId: "979575209292",
+          appId: "1:979575209292:web:f7e1a3ca8ea7e415f623e9",
+          measurementId: "G-6R8DQW6LP9"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>
